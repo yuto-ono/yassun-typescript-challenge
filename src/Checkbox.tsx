@@ -5,13 +5,18 @@ export type MyFieldValues = {
   age: number
 }
 
-type Props = {
+type Props<T extends keyof MyFieldValues> = {
   label: string
   control: Control<MyFieldValues>
-  name: keyof MyFieldValues
-  value: MyFieldValues["gender"] | number
+  name: T
+  value: MyFieldValues[T]
 }
-export const Checkbox = ({ label, control, name, value }: Props) => {
+export const Checkbox = <T extends keyof MyFieldValues>({
+  label,
+  control,
+  name,
+  value,
+}: Props<T>) => {
   return (
     <Controller
       control={control}

@@ -7,6 +7,7 @@ function App() {
   return (
     <div>
       <Checkbox label="test" control={control} name="gender" value="man" />
+      <Checkbox label="test" control={control} name="age" value={1} />
     </div>
   )
 }
